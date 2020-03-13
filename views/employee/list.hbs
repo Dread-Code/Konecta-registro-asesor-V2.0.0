@@ -1,0 +1,39 @@
+<div class="col-md-10 offset-md-1" style="background-color: #fff; margin-top: 24px;">
+    <h1><a href="/employee" class="btn btn-secondary"><i class="fa fa-plus"></i></i> Nuevo registro</a> Lista asesores</h1>
+   <table class="table table-bordered " style="margin-top: 16px;">
+    <thead>
+        <tr>
+        <th>NombreCompleto</th>
+        <th>Cedula</th>
+        <th>Telefono</th>
+        <th>Direccion</th>
+        <th>Fecha de nacimiento</th>
+        <th>Edad</th>
+        <th>Genero</th>
+        <th>Cliente</th>
+        <th>Sede</th>
+        <th></th>
+        
+        </tr>  
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.nombreCompleto}}</td>
+            <td>{{this.cedula}}</td>
+            <td>{{this.telefono}}</td>
+            <td>{{this.direccion}}</td>
+            <td>{{this.fechaNacimiento}}</td>
+            <td>{{this.edad}}</td>
+            <td>{{this.genero}}</td>
+            <td>{{this.cliente}}</td>
+            <td>{{this.sede}}</td>
+            <td>
+                <a href="/employee/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/employee/delete/{{this._id}}" onclick="return confirm('Esta seguro que quiere eliminar este registro?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table> 
+</div>

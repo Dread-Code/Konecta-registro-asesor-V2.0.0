@@ -1,0 +1,88 @@
+
+
+<div class="col-md-6 offset-md-3" style="background-color: #fff; margin-top: 24px;">
+ <h3>{{viewTitle}}</h3>    
+ <form autocomplete="on" action="/employee" method="POST">
+ <input type="hidden" name="_id" value="{{usuario._id}}">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label > Nombre Completo</label>
+            <input type="text" class="form-control" name="nombreCompleto" placeholder="Nombre Completo" value="{{usuario.nombreCompleto}}">
+            <div class="text-danger">
+                {{usuario.nombreCompletoError}} </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label > Cedula</label>
+            <input type="text" class="form-control" name="cedula" placeholder="Cedula" value="{{usuario.cedula}}">
+            <div class="text-danger">
+                {{usuario.cedulaError}} {{cedulaMongoError}}</div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label > Telefono</label>
+            <input type="text" class="form-control" name="telefono" placeholder="Telefono" value="{{usuario.telefono}}">
+            <div class="text-danger">
+                {{usuario.telefonoError}}</div>
+        </div>
+        <div class="form-group col-md-8">
+            <label > Direccion</label>
+            <input type="text" class="form-control" name="direccion" placeholder="Direccion" value="{{usuario.direccion}}">
+            <div class="text-danger">
+                {{usuario.direccionError}}</div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label > Fecha de Nacimiento</label>
+            <input type="date" class="form-control" name="fechaNacimiento" placeholder="Fecha de Nacimiento" value="{{usuario.fechaNacimiento}}">
+            <div class="text-danger">
+                {{usuario.fechaNacimientoError}}</div>
+        </div>
+        <div class="form-group col-md-6">
+        <label > Cliente </label>
+        <input type="text" class="form-control" name="cliente" placeholder="Cliente" value="{{usuario.cliente}}">
+        <div class="text-danger">
+                {{usuario.clienteError}}</div>
+    </div>
+    </div>
+    
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Genero</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" name="genero" value="{{usuario.genero}}">
+                            <div class="text-danger">
+                                {{usuario.generoError}}</div>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        </div>    
+            </div>  
+    
+    
+            <div class="form-group col-md-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect02">Sede</label>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect02" name="sede" value="{{usuario.sede}}">
+                                            <div class="text-danger">
+                                            {{usuario.sedeError}}</div>
+                                        <option value="Ruta N">Ruta N</option>
+                                        <option value="Puerto Seco">Puerto seco</option>
+                                        <option value="Buro">Buro</option>
+                                        </select>
+                                    </div>    
+            </div>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Guardar </button>
+        <a href="/employee/list" class="btn btn-secondary"><i class="fa fa-list-alt"></i> Registro</a>
+    </div>
+</form>       
+</div>
