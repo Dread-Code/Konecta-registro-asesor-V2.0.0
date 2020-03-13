@@ -1,5 +1,5 @@
 <div class="col-md-10 offset-md-1" style="background-color: #fff; margin-top: 24px;">
-    <h1><a href="/employee" class="btn btn-secondary"><i class="fa fa-plus"></i></i> Nuevo registro</a> Lista asesores</h1>
+    <h1><a href="/employee" class="btn btn-secondary" style="background-color: #615e9b;"><i class="fa fa-plus"></i></i> Nuevo registro</a> Lista asesores</h1>
    <table class="table table-bordered " style="margin-top: 16px;">
     <thead>
         <tr>
@@ -29,8 +29,8 @@
             <td>{{this.cliente}}</td>
             <td>{{this.sede}}</td>
             <td>
-                <a href="/employee/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                <a href="/employee/delete/{{this._id}}" onclick="return confirm('Esta seguro que quiere eliminar este registro?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                <a href="/employee/{{this._id}}"><i class="fa fa-pencil fa-lg " aria-hidden="true" style="margin-left: 20px; color: #007bff ; "></i></a>
+                <a href="/employee/delete/{{this._id}}" onclick="return confirm('Esta seguro que quiere eliminar este registro?');" style="margin-left: 20px; color:#dc3545; "><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>
         {{/each}}
