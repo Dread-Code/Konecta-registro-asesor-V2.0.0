@@ -5,7 +5,7 @@ const Usuario = require('../models/employee.model');
 
 const { getAnio } = require('../utilities/utilities');
 
-
+// Render del formulario/index
 router.get('/',(req,res)=>{
 
     res.render('employee/addOrEdit',{
@@ -13,12 +13,16 @@ router.get('/',(req,res)=>{
     })
 });
 
+// post para realizar insercion o actualizacion en la DB===> si no tiene id va a insertar el registro de lo contrario realizara una actualizacion
+
 router.post('/',(req,res)=>{
     if (req.body._id == '') 
         insertRecord(req,res);    
     else updateRecord(req,res);
     
 });
+
+// la funcion con la cual se realiza la actualizacion por ID 
 
 function updateRecord(req,res) {
     console.log(req.body);
@@ -41,6 +45,8 @@ function updateRecord(req,res) {
 
 }
 
+// funcion para insertar nuevos registros
+
 function insertRecord(req,res){
 
     let body= req.body;
@@ -62,15 +68,15 @@ function insertRecord(req,res){
             res.redirect('employee/list');// si no hay error la respuesta la redirige a router get('/list)
         else{
             if(err.name == 'ValidationError' ){
-                handleValidationError(err,req.body);
+                handleValidationError(err,req.body);// aqui se realiza la validacion de campos 
                 res.render('employee/addOrEdit',{
                     viewTitle:"Ingrese Asesor",
                     usuario: req.body
                 });
             }
-            if (err.name == 'MongoError') {
+            if (err.name == 'MongoError') { // Esta es la validacion especifica para el campo unico el cual es la cedula (Prymarykey)
                 console.log(err.errmsg);
-                res.render('employee/addOrEdit',{
+                res.render('employee/addOrEdit',{ // aqui se envia para que renderice en ese campo en especifico 
                     viewTitle:"Ingrese Asesor",
                     cedulaMongoError: `La cedula ${err.keyValue.cedula} ya esta registrada en la DB`
                 });
@@ -82,6 +88,7 @@ function insertRecord(req,res){
     
     
 }
+// renderiza los registros para mostrarlos en la tabla
 
 router.get('/list',(req,res)=>{
 
@@ -98,6 +105,7 @@ router.get('/list',(req,res)=>{
         }
     })
 })
+// validacion del required  del modelo  ==> renderiza de acuerdo al campo que falte
 
 function handleValidationError(err,body){
 
@@ -134,6 +142,8 @@ function handleValidationError(err,body){
 
 }
 
+// Peticion que se realiza al darle al boton editar para que se actualice la informacion, la informacion persiste en los campos
+
 router.get('/:id',(req,res)=>{
 
     Usuario.findById(req.params.id,(err,doc)=>{
@@ -147,6 +157,8 @@ router.get('/:id',(req,res)=>{
     });
 
 });
+
+// peticion que se realiza al darle boton eliminar, primero realizara la pregunta y despues actualiza y envia para que se renderice en la lista 
 
 router.get('/delete/:id',(req,res)=>{
 

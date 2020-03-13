@@ -1,3 +1,7 @@
+//=============================
+// Conexion a base de datos
+//=============================
+
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://lucas:iUgQI6ekkeKTUWts@cluster0-hcdpy.mongodb.net/konecta2', { useNewUrlParser: true,  useUnifiedTopology: true },(err)=>{

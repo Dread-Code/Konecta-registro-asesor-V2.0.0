@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+//=============================
+// Modelo de Usuario
+//=============================
 let usuarioSchema = new Schema({
 
     nombreCompleto:{
